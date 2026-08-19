@@ -35,7 +35,7 @@ export function VehicleCard({ item }: { item: Vehicle }) {
     <article className="vehicle-card">
       <div className="vehicle-body">
         <div>
-          <div className="vehicle-badges">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
             {item.tier && <span className="status-badge">Tier {item.tier}</span>}
             {item.isFree && <span className="status-badge free">Free</span>}
             {item.isLimited && <span className="status-badge limited">Limited</span>}
