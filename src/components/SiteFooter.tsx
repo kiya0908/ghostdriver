@@ -12,7 +12,7 @@ export function SiteFooter() {
           <p className="footer-disclaimer">{t('site.disclaimer')}</p>
         </div>
         <nav className="footer-links" aria-label="Ghost Driver site links">
-          <Link to="/codes">Ghost Driver Codes</Link>
+          <Link to="/codes" search={{ status: 'active' }}>Ghost Driver Codes</Link>
           <Link to="/vehicles">Ghost Driver Cars</Link>
           <Link to="/vehicles/best">Best Ghost Driver Cars</Link>
           <Link to="/vehicles/free">Free Ghost Driver Cars</Link>
