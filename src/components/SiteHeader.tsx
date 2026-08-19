@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { Menu, Route as RouteIcon, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const navItems = [
@@ -17,7 +17,9 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand" aria-label="Ghost Driver Wiki home">
-          <span className="brand-mark" aria-hidden="true"><RouteIcon size={22} strokeWidth={2.4} /></span>
+          <span className="brand-mark" aria-hidden="true">
+            <img src="/favicon.svg" alt="" width="42" height="42" />
+          </span>
           <span className="brand-copy"><strong>GHOST DRIVER</strong><small>WIKI // UNOFFICIAL</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
