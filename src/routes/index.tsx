@@ -92,13 +92,7 @@ function HomePage() {
           <SectionHeading index="03" title="Watch Ghost Driver gameplay" description="See highway driving, traffic cutting and the pace of a real Ghost Driver run." />
           <div className="video-shell">
             <div className="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/LvwkzCRWF1g"
-                title="Ghost Driver Roblox gameplay video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              <iframe src="https://www.youtube.com/embed/LvwkzCRWF1g" title="Ghost Driver Roblox gameplay video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
             <div className="video-copy">
               <PlayCircle size={30} />
@@ -118,10 +112,10 @@ function HomePage() {
         </section>
 
         <section className="section">
-          <SectionHeading index="05" title="Ghost Driver cars and vehicle progression" description="Compare community records while remembering that pre-alpha values can change." action={<Link className="text-link" to="/vehicles">All vehicles <ChevronRight size={15} /></Link>} />
+          <SectionHeading index="05" title="Ghost Driver cars and vehicle progression" description="Compare community records while remembering that pre-alpha values can change." action={<Link className="text-link" to="/cars">All Ghost Driver cars <ChevronRight size={15} /></Link>} />
           <div className="section-copy">
             <p>Cars are a major part of Ghost Driver, but the fastest vehicle is not automatically the best choice for every player. Acceleration, handling, braking, stability, price and driving style can all affect how useful a car feels on the highway. Beginners may benefit more from predictable handling, while experienced players may prefer cars that reward aggressive high-speed driving.</p>
-            <p>When choosing your next Ghost Driver car, ask whether you can control it, whether it is worth the Cash and whether it fits the way you drive. Our Ghost Driver vehicle pages collect available community information and clearly mark unknown or unverified values rather than inventing performance numbers.</p>
+            <p>When choosing your next Ghost Driver car, ask whether you can control it, whether it is worth the Cash and whether it fits the way you drive. Our Ghost Driver car pages collect available community information and clearly mark unknown or unverified values rather than inventing performance numbers.</p>
           </div>
           <div className="card-grid">{data.vehicles.map((item) => <VehicleCard key={item.id} item={item} />)}</div>
         </section>
@@ -156,26 +150,11 @@ function HomePage() {
         <section className="section">
           <SectionHeading index="09" title="Ghost Driver FAQ" description="Quick answers to common questions from players finding the game for the first time." />
           <div className="faq-list">
-            <details>
-              <summary><span>01</span>What is Ghost Driver?</summary>
-              <p>Ghost Driver is a Roblox highway driving experience from Tilted Vehicles centered on high-speed traffic cutting, cars and progression. The official experience is currently labeled pre-alpha, so features and game data can change during development.</p>
-            </details>
-            <details>
-              <summary><span>02</span>Are there active Ghost Driver codes?</summary>
-              <p>Use our Ghost Driver codes tracker for the current status. We do not label a Ghost Driver Roblox code as active simply because it appears on an older list; unverified claims remain unpublished until they meet our checking standard.</p>
-            </details>
-            <details>
-              <summary><span>03</span>How do I get better at Ghost Driver?</summary>
-              <p>Start by learning one car and one section of road. Build consistent runs before increasing speed, look farther ahead in traffic, make smoother steering inputs and review what caused each failed run.</p>
-            </details>
-            <details>
-              <summary><span>04</span>What is the best car in Ghost Driver?</summary>
-              <p>There is no single Ghost Driver car that is automatically best for every player. The right choice depends on the current build, your budget and whether you value acceleration, handling, stability or another characteristic.</p>
-            </details>
-            <details>
-              <summary><span>05</span>Is this the official Ghost Driver website?</summary>
-              <p>No. This is an independent fan-made Ghost Driver wiki and is not affiliated with Roblox, Tilted Vehicles or the official Ghost Driver development team.</p>
-            </details>
+            <details><summary><span>01</span>What is Ghost Driver?</summary><p>Ghost Driver is a Roblox highway driving experience from Tilted Vehicles centered on high-speed traffic cutting, cars and progression. The official experience is currently labeled pre-alpha, so features and game data can change during development.</p></details>
+            <details><summary><span>02</span>Are there active Ghost Driver codes?</summary><p>Use our Ghost Driver codes tracker for the current status. We do not label a Ghost Driver Roblox code as active simply because it appears on an older list; unverified claims remain unpublished until they meet our checking standard.</p></details>
+            <details><summary><span>03</span>How do I get better at Ghost Driver?</summary><p>Start by learning one car and one section of road. Build consistent runs before increasing speed, look farther ahead in traffic, make smoother steering inputs and review what caused each failed run.</p></details>
+            <details><summary><span>04</span>What is the best car in Ghost Driver?</summary><p>There is no single Ghost Driver car that is automatically best for every player. The right choice depends on the current build, your budget and whether you value acceleration, handling, stability or another characteristic.</p></details>
+            <details><summary><span>05</span>Is this the official Ghost Driver website?</summary><p>No. This is an independent fan-made Ghost Driver wiki and is not affiliated with Roblox, Tilted Vehicles or the official Ghost Driver development team.</p></details>
           </div>
         </section>
 
@@ -186,11 +165,7 @@ function HomePage() {
         </section>
 
         <section className="section roblox-cta">
-          <div>
-            <p className="eyebrow"><span />PLAY THE OFFICIAL EXPERIENCE</p>
-            <h2>Ready to drive Ghost Driver?</h2>
-            <p>Open the official Ghost Driver Roblox page by Tilted Vehicles and jump into the latest available build. After playing, return here for Ghost Driver codes, cars, beginner guides, driving tips and update tracking.</p>
-          </div>
+          <div><p className="eyebrow"><span />PLAY THE OFFICIAL EXPERIENCE</p><h2>Ready to drive Ghost Driver?</h2><p>Open the official Ghost Driver Roblox page by Tilted Vehicles and jump into the latest available build. After playing, return here for Ghost Driver codes, cars, beginner guides, driving tips and update tracking.</p></div>
           <a className="button primary roblox-button" href="https://www.roblox.com/games/137228775845999/Ghost-Driver" target="_blank" rel="noreferrer noopener">Play Ghost Driver on Roblox <ExternalLink size={17} /></a>
         </section>
       </div>
