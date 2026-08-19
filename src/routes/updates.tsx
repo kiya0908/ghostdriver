@@ -55,7 +55,7 @@ function UpdatesPage() {
         <div className="protocol-grid" style={{ marginTop: 24 }}>
           <Link to="/cars"><article style={{ padding: 25 }}><Car size={26} /><h3>Cars and availability</h3><p>Check whether a Ghost Driver update adds vehicles, changes availability or affects free and limited car records.</p><span className="text-link">Browse cars <ArrowRight size={14} /></span></article></Link>
           <Link to="/codes" search={{ status: 'active' }}><article style={{ padding: 25 }}><TicketCheck size={26} /><h3>Codes and rewards</h3><p>New Ghost Driver updates sometimes create new reasons to recheck active Roblox codes and reward status.</p><span className="text-link">Check codes <ArrowRight size={14} /></span></article></Link>
-          <Link to="/guides/"><article style={{ padding: 25 }}><RouteIcon size={26} /><h3>Guides and strategies</h3><p>When a Ghost Driver update changes driving or progression, version-aware guides need to be reviewed too.</p><span className="text-link">Open guides <ArrowRight size={14} /></span></article></Link>
+          <Link to="/guides"><article style={{ padding: 25 }}><RouteIcon size={26} /><h3>Guides and strategies</h3><p>When a Ghost Driver update changes driving or progression, version-aware guides need to be reviewed too.</p><span className="text-link">Open guides <ArrowRight size={14} /></span></article></Link>
         </div>
       </section>
 
@@ -107,7 +107,7 @@ function UpdatesPage() {
           <article><h3>How often does Ghost Driver update?</h3><p>There is no fixed update schedule we can verify from the current public game description. During Pre-Alpha, Ghost Driver updates may arrive irregularly. This page therefore tracks confirmed changes by date rather than promising a weekly or monthly cadence.</p></article>
           <article><h3>Do Ghost Driver updates add new cars?</h3><p>The official description asks players to like and favorite the experience for more updates and new cars, so vehicles are clearly part of the developer's public update messaging. When a new vehicle is confirmed, we also review the car database and related guides.</p></article>
           <article><h3>Are community rumors included as patch notes?</h3><p>No. Possible Ghost Driver updates can be investigated, but rumors are not promoted to confirmed patch notes without enough evidence. If a claim is useful but not verified, it should be labelled accordingly.</p></article>
-          <article><h3>Where should I look after a Ghost Driver update?</h3><p>Start with this update log, then check <Link to="/cars" className="text-link">cars <ArrowRight size={14} /></Link>, <Link to="/codes" search={{ status: 'active' }} className="text-link">codes <ArrowRight size={14} /></Link> and <Link to="/guides/" className="text-link">guides <ArrowRight size={14} /></Link> for the systems most likely to have changed.</p></article>
+          <article><h3>Where should I look after a Ghost Driver update?</h3><p>Start with this update log, then check <Link to="/cars" className="text-link">cars <ArrowRight size={14} /></Link>, <Link to="/codes" search={{ status: 'active' }} className="text-link">codes <ArrowRight size={14} /></Link> and <Link to="/guides" className="text-link">guides <ArrowRight size={14} /></Link> for the systems most likely to have changed.</p></article>
           <article><h3>Is this the official Ghost Driver update page?</h3><p>No. This is an independent community tracker. Official developer information should always take priority when it exists, and our entries are written to preserve that distinction.</p></article>
         </div>
       </section>
@@ -115,7 +115,7 @@ function UpdatesPage() {
       <section className="section">
         <div className="roblox-cta">
           <div><p className="eyebrow"><span />Stay version-aware</p><h2>Use Ghost Driver Updates With the Rest of the Wiki</h2><p>When the next Ghost Driver update arrives, verify what changed here, then move into cars, codes and guides to see how the release affects your next run.</p></div>
-          <Link className="button primary roblox-button" to="/guides/"><RouteIcon size={18} />Browse Ghost Driver Guides</Link>
+          <Link className="button primary roblox-button" to="/guides"><RouteIcon size={18} />Browse Ghost Driver Guides</Link>
         </div>
       </section>
     </div>
