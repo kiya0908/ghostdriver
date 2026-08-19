@@ -27,6 +27,9 @@ function GuidePage() {
     keywords: guide.primaryKeyword,
   }
 
+  const figureStyle = { margin: '28px 0', overflow: 'hidden', border: '1px solid var(--outline)', borderRadius: 16, background: 'var(--surface-low)' } as const
+  const imageStyle = { display: 'block', width: '100%', height: 'auto' } as const
+
   return (
     <div className="container article-shell">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -38,8 +41,8 @@ function GuidePage() {
         <div><span><CalendarDays size={16} />Updated {guide.updatedAt}</span><span><Clock3 size={16} />{guide.readTime}</span></div>
       </header>
       {guide.heroImage && (
-        <figure className="article-hero-image">
-          <img src={guide.heroImage} alt={guide.heroImageAlt ?? guide.title} loading="eager" />
+        <figure style={figureStyle}>
+          <img src={guide.heroImage} alt={guide.heroImageAlt ?? guide.title} loading="eager" style={imageStyle} />
         </figure>
       )}
       <UnofficialNotice compact />
@@ -51,9 +54,9 @@ function GuidePage() {
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.image && (
-                <figure className="guide-figure">
-                  <img src={section.image} alt={section.imageAlt ?? section.heading} loading="lazy" />
-                  {section.imageCaption && <figcaption>{section.imageCaption}</figcaption>}
+                <figure style={figureStyle}>
+                  <img src={section.image} alt={section.imageAlt ?? section.heading} loading="lazy" style={imageStyle} />
+                  {section.imageCaption && <figcaption style={{ padding: '12px 16px', color: 'var(--muted)', fontSize: 12 }}>{section.imageCaption}</figcaption>}
                 </figure>
               )}
               {section.steps && <ol>{section.steps.map((step) => <li key={step}>{step}</li>)}</ol>}
