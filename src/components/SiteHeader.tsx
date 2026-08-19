@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 const navItems = [
   { to: '/', key: 'home' },
   { to: '/codes', key: 'codes' },
-  { to: '/vehicles', key: 'vehicles' },
+  { to: '/cars', key: 'vehicles' },
   { to: '/guides', key: 'guides' },
   { to: '/updates', key: 'updates' },
 ] as const
