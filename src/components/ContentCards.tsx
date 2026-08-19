@@ -18,39 +18,43 @@ export function CodeCard({ item }: { item: GameCode }) {
 }
 
 function stat(value: number | null) {
-  return value === null ? 'Pending' : `${value}/100`
+  return value === null ? null : `${value}/100`
 }
 
 function speed(value: number | null) {
-  return value === null ? 'Pending' : `${value} MPH`
+  return value === null ? null : `${value} MPH`
 }
 
 export function VehicleCard({ item }: { item: Vehicle }) {
+  const topSpeed = speed(item.topSpeed)
+  const handling = stat(item.handling)
+  const acceleration = stat(item.acceleration)
+  const hasPerformance = topSpeed || handling || acceleration
+
   return (
     <article className="vehicle-card">
-      <div className="vehicle-visual" aria-hidden="true">
-        <span className="vehicle-number">{item.tier ?? '—'}</span>
-        <div className="car-silhouette"><span /><span /></div>
-        <div className="vehicle-badges">
-          {item.isFree && <span className="status-badge free">Free</span>}
-          {item.isLimited && <span className="status-badge limited">Limited</span>}
-          {item.isNew && <span className="status-badge active">Recent</span>}
-        </div>
-      </div>
       <div className="vehicle-body">
         <div>
+          <div className="vehicle-badges">
+            {item.tier && <span className="status-badge">Tier {item.tier}</span>}
+            {item.isFree && <span className="status-badge free">Free</span>}
+            {item.isLimited && <span className="status-badge limited">Limited</span>}
+            {item.isNew && <span className="status-badge active">Recent</span>}
+          </div>
           <p className="micro-label">{item.vehicleClass ?? 'GHOST DRIVER CAR'} · {item.confidence ? `${item.confidence} confidence` : 'community record'}</p>
           <h3>{item.name}</h3>
           {item.realWorldModel && <p className="verified-line">Inspired by: {item.realWorldModel}</p>}
           <p>{item.description}</p>
-          <p className="verified-line"><strong>Price:</strong> {item.price === null ? 'Pending verification' : `$${item.price.toLocaleString()}`} · <strong>Access:</strong> {item.acquisition ?? 'Pending verification'}</p>
+          <p className="verified-line"><strong>Price:</strong> {item.price === null ? 'Not confirmed' : `$${item.price.toLocaleString()}`} · <strong>Access:</strong> {item.acquisition ?? 'Not confirmed'}</p>
         </div>
-        <dl className="vehicle-stats">
-          <div><dt><Gauge size={15} />Top speed</dt><dd>{speed(item.topSpeed)}</dd></div>
-          <div><dt><Wrench size={15} />Handling</dt><dd>{stat(item.handling)}</dd></div>
-          <div><dt><Timer size={15} />Acceleration</dt><dd>{stat(item.acceleration)}</dd></div>
-        </dl>
-        <p className="verified-line">Last checked {item.verifiedAt} · {item.dataQuality.replace('-', ' ')}{item.specsVerified === false ? ' · exact specs provisional' : ''}</p>
+        {hasPerformance ? (
+          <dl className="vehicle-stats">
+            {topSpeed && <div><dt><Gauge size={15} />Top speed</dt><dd>{topSpeed}</dd></div>}
+            {handling && <div><dt><Wrench size={15} />Handling</dt><dd>{handling}</dd></div>}
+            {acceleration && <div><dt><Timer size={15} />Acceleration</dt><dd>{acceleration}</dd></div>}
+          </dl>
+        ) : <p className="verified-line">Exact performance figures are not published until a current in-game or independently visible spec source is available.</p>}
+        <p className="verified-line">Last checked {item.verifiedAt} · {item.dataQuality.replace('-', ' ')}{item.specsVerified === false ? ' · exact specs may still change' : ''}</p>
       </div>
     </article>
   )
