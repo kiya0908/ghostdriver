@@ -1,32 +1,36 @@
 **Ghost Driver Wiki / Guide 网站 PRD（产品需求文档）**  
-**版本**：1.3  
+**版本**：1.4  
 **日期**：2026-08-19  
 **状态**：开发中  
 **技术栈**：TanStack Start（TypeScript + TanStack Router） + i18n + SSR/SSG  
-**目标**：快速上线一个专业、SEO友好、数据可维护、明确标注为粉丝非官方的 Roblox *Ghost Driver* 游戏攻略网站
+**目标**：上线一个专业、SEO 友好、数据可维护、明确标注为粉丝非官方的 Roblox *Ghost Driver* 攻略与数据网站。
 
 ---
 
-### 1. 项目背景与目标
+### 1. 项目目标
 
-Ghost Driver 是 Tilted Vehicles 开发的 Roblox Pre-Alpha 驾驶游戏。网站目标是覆盖兑换码、车辆、攻略与更新等核心搜索意图，同时通过 SSR/SSG 确保搜索引擎无需执行 JavaScript 即可获取完整核心内容。
+Ghost Driver 是 Tilted Vehicles 开发的 Roblox Pre-Alpha 驾驶游戏。网站覆盖兑换码、车辆、攻略与更新等核心搜索意图，并通过 SSR/SSG 确保搜索引擎无需执行 JavaScript 即可读取核心内容。
 
 产品原则：
 1. 英文站优先，结构预留 i18n。
 2. Codes 与 Cars 数据必须标记验证日期与可信度。
-3. 不把竞品 Wiki 的单一来源数据直接当作事实；车辆身份与精确参数分开验证。
-4. 未确认的价格、性能、解锁方式使用 Pending/TBD，不编造补齐。
+3. 不把单一竞品 Wiki 数据直接当作事实；车辆身份与精确参数分开验证。
+4. 未确认的价格、性能、解锁方式不编造补齐。
 5. 全站明确声明为 fan-made unofficial website。
+6. Cars 页面优先提供可读数据与文本内容，不依赖车辆图片完成信息表达。
 
 ---
 
-### 2. 目标用户与核心意图
+### 2. 核心搜索意图
 
-1. 查询最新 Ghost Driver codes。
-2. 查询 Ghost Driver cars、价格、性能、免费/限时车辆。
-3. 查询 best cars / car tier list。
-4. 新手入门、刷钱、调校与驾驶技巧。
-5. 查询版本更新和新车。
+1. Ghost Driver codes / Ghost Driver Roblox codes。
+2. Ghost Driver cars / all cars / car list / car prices / car stats。
+3. Ghost Driver best cars / tier list / fastest car。
+4. Ghost Driver free cars / starter cars。
+5. Ghost Driver limited cars / showroom cars。
+6. Ghost Driver new cars / latest cars。
+7. 新手、刷钱、调校与驾驶技巧。
+8. 游戏版本更新。
 
 ---
 
@@ -36,11 +40,11 @@ Ghost Driver 是 Tilted Vehicles 开发的 Roblox Pre-Alpha 驾驶游戏。网�
 /                              Home
 /codes                         Ghost Driver Codes
 
-/vehicles                      Ghost Driver Cars Database / All Cars
-├── /vehicles/best             Best Cars & Tier List
-├── /vehicles/free             Free Cars
-├── /vehicles/limited          Limited Cars
-└── /vehicles/new              New Cars（规划，待实现）
+/cars                          Ghost Driver Cars Database / All Cars
+├── /cars/best                 Best Cars & Tier List
+├── /cars/new                  New Cars
+├── /cars/free                 Free Cars
+└── /cars/limited              Limited Cars
 
 /guides                        Guides
 ├── /guides/beginner
@@ -57,94 +61,108 @@ Ghost Driver 是 Tilted Vehicles 开发的 Roblox Pre-Alpha 驾驶游戏。网�
 /contact
 ```
 
-#### Cars URL 决策
-当前项目已实现 `/vehicles` 路由，因此本轮继续保持 URL 稳定，避免在功能开发过程中同时进行路由迁移。页面 SEO 文案统一优先使用用户实际搜索的 **Ghost Driver Cars / Cars Database / Best Cars / Free Cars / Limited Cars**，而不是机械重复 Vehicles。若后续 GSC 数据证明 `/cars` 有明显 URL 层级优势，再单独评估一次性迁移与 301。
+原 `/vehicles`、`/vehicles/best`、`/vehicles/free`、`/vehicles/limited` 路由作为历史兼容入口保留 301/应用级重定向到对应 `/cars` 路由，但不得出现在 sitemap、Footer、Header 或新建内部链接中。
 
 ---
 
-### 4. Cars 数据库需求（2026-08-19 更新）
+### 4. Cars 数据库页面要求
 
-#### 4.1 `/vehicles` 主页面
-定位：**SEO Pillar Page + Cars Database + Cars 内容 Hub**。
+#### 4.1 `/cars`
+定位：**SEO Pillar Page + Cars Database + Cars Topic Hub**。
 
-必须包含：
+核心要求：
 - H1：Ghost Driver Cars Database。
-- 数据库摘要：tracked cars / limited / free / recent。
-- All / Free / Limited / Best Cars 导航。
-- 车辆卡片数据库。
-- Cars 工作机制与数据库验证方法说明。
-- SSR 输出全部核心车辆文字和数据。
+- 英文正文至少约 1,200 词，目标 1,200–1,500 词。
+- 页面必须包含真实数据库内容，而不是只有 SEO 长文。
+- SSR 输出全部核心文本和车辆数据。
+- 页面需要明显内链到 `/cars/best`、`/cars/new`、`/cars/free`、`/cars/limited`。
+- 内链既出现在专题入口卡片中，也自然嵌入正文相关章节。
 
-车辆卡片字段：
-- 游戏内名称。
-- 现实车型映射（仅在证据足够时显示）。
-- Class / Tier。
-- Price / acquisition method。
-- Free / Limited / Recent 标签。
-- Top Speed / Handling / Acceleration。
-- Last checked。
-- Confidence / data quality。
-- 未验证字段显示 Pending，不使用猜测值。
+内容模块：
+1. Ghost Driver cars overview。
+2. Cars database summary。
+3. All tracked cars。
+4. Best Cars 入口。
+5. New Cars 入口。
+6. Free Cars 入口。
+7. Limited Cars 入口。
+8. How to choose a car。
+9. Car prices and progression。
+10. Top speed / acceleration / handling 解读。
+11. New vs Limited 区别。
+12. Free / starter cars 说明。
+13. Tuning 对车辆比较的影响。
+14. 数据验证方法。
+15. Cars FAQ。
 
-#### 4.2 `/vehicles/best`
-页面目标关键词：Ghost Driver best cars、Ghost Driver tier list、Ghost Driver car tier list、fastest car。
+#### 4.2 `/cars/best`
+覆盖 Ghost Driver best cars、Ghost Driver tier list、Ghost Driver car tier list、fastest car。
 
-Best Cars 与 Tier List 合并为一个页面，不再拆两个 URL。S/A/B/C 排名只能使用证据足够的数据；当前阶段属于 evolving/community ranking，页面必须说明方法与局限。
+Best Cars 与 Tier List 合并为一个 URL。排名只能使用证据足够的车辆；当前阶段为 evolving/community ranking，必须说明排名方法和局限。没有足够证据的车辆保持 unranked，不为了填满 S/A/B/C 强行分级。
 
-#### 4.3 `/vehicles/free`
-覆盖：Ghost Driver free cars、starter cars、group/free rewards。
+#### 4.3 `/cars/new`
+覆盖 Ghost Driver new cars、latest Ghost Driver cars、recent update cars。
+
+“New” 与 “Limited” 必须分开：New 表示近期加入或近期更新关联，Limited 表示曾有时间/库存限制。页面不能把 Recent 自动理解成当前仍在售。
+
+#### 4.4 `/cars/free`
+覆盖 Ghost Driver free cars、starter cars、group rewards。
 
 必须区分：
-- 车辆存在是否确认。
-- “免费”是否确认。
-- 具体 unlock requirement 是否确认。
+- 车辆身份是否确认。
+- Free / starter 状态是否确认。
+- unlock requirement 是否确认。
 
-不能因为某竞品写 Free 就直接把解锁方式当成事实。
+#### 4.5 `/cars/limited`
+覆盖 Ghost Driver limited cars、showroom cars、limited rotation、rare cars。
 
-#### 4.4 `/vehicles/limited`
-覆盖：Ghost Driver limited cars、showroom cars、limited vehicle rotation、rare cars。
-
-Limited 身份与“当前正在售卖”必须分开。历史 Limited 车型可以保留，但不得暗示它现在仍在 showroom。
-
-#### 4.5 `/vehicles/new`（下一阶段）
-覆盖 latest Ghost Driver cars / new cars / update cars。使用版本与 added/update evidence 维护，不单纯依赖 `isNew` 永久标签。
+Limited 身份和“当前正在售卖”是两个字段。历史 limited 车型可保留，但不能暗示仍在当前 showroom。
 
 ---
 
-### 5. Cars 数据验证规则
+### 5. Cars 数据策略
 
-车辆数据采用分层来源：
+车辆数据来源分层：
 
 **Level A — 高可信**
-- 游戏内 UI / 自行验证。
-- 清晰 Ghost Driver 实机视频或截图，能直接确认车辆名称/字段。
-- 官方 Ghost Driver / Tilted Vehicles 公开信息。
+- 当前游戏 UI。
+- 清晰 Ghost Driver 实机视频/截图，可直接确认字段。
+- 官方 Ghost Driver / Tilted Vehicles 信息。
 
-**Level B — 可用于交叉验证**
-- 独立游戏媒体、带 Ghost Driver 游戏截图的攻略。
-- 多个独立玩家实机内容相互印证。
+**Level B — 可交叉验证**
+- 独立游戏媒体。
+- 带 Ghost Driver 实际游戏截图的攻略。
+- 多个独立玩家内容相互印证。
 
-**Level C — 候选数据**
-- ghostdriverroblox.wiki、ghost-driver.site、ghostdriverwiki.wiki 等竞品 Wiki。
+**Level C — 候选来源**
+- ghostdriverroblox.wiki。
+- ghost-driver.site。
+- ghostdriverwiki.wiki。
 - 单一社区帖子。
 
-Level C 可用于发现车型和待验证字段，但不得作为高风险精确数据的唯一生产依据。
+Level C 可用于发现车型和候选数值，但不能自动升级为高可信事实。
 
-当前生产数据原则：
-- 车型身份可信但 specs 未确认：允许进入 roster，数值为 null/Pending。
-- 精确数值只有竞品单一来源：可保留为 provisional/community-estimate，并明确标记。
-- 名称本身无法独立确认：不进入正式 roster。
-- 明显冲突/疑似虚构：进入研究隔离表，不进入网站。
+当前原则：
+- 车型身份可信、精确 specs 未确认：允许进入 roster。
+- 已有具体社区数值且具有实际参考价值：可显示为 community-estimate / provisional。
+- 页面不再为每个缺失字段堆叠多个 “Pending”；没有性能数据时统一解释为 exact performance figures not yet published/confirmed。
+- 能确认的数值必须展示，不能因为其他字段缺失而把整辆车显示成 Pending。
+- 名称本身无法确认：不进入正式 roster。
+- 明显冲突或疑似虚构数据：留在研究层，不进入生产页面。
 
-截至 2026-08-19，第一批生产 roster 重点包含：Wulfbrecht RZ7、Weinchen V120、Kitsuni LX、Rangy Helly、Castellani Specchiera、Reinhardt RT32、Takama F10 GT、Audi R8、BMW M3 G80、BMW M140i、C7。部分车辆只有身份确认，精确参数仍待验证。
+截至 2026-08-19，生产 roster 包含：Wulfbrecht RZ7、Weinchen V120、Kitsuni LX、Rangy Helly、Castellani Specchiera、Reinhardt RT32、Takama F10 GT、Audi R8、BMW M3 G80、BMW M140i、C7。
+
+当前已保留可用的具体数值，例如：
+- Kitsuni LX：社区来源报告 $45,000、165 MPH。
+- Takama F10 GT：社区/竞品来源报告 $350,000、215 MPH stock、278 MPH tuned；车辆身份与 Limited 状态具有更强独立证据。
+
+这些精确数值必须在 UI 中保持 provisional/community-estimate 语义，不包装成官方永久规格。
 
 ---
 
-### 6. 核心数据模型
+### 6. Vehicle 数据模型
 
-本地 TypeScript 数据存放于 `src/data/`，通过 repository + server loader 获取。
-
-Vehicle 至少支持：
+本地 TypeScript 数据位于 `src/data/vehicles.ts`，通过 repository + server loader 提供 SSR 数据。
 
 ```text
 id
@@ -171,95 +189,92 @@ sources?
 specsVerified?
 ```
 
-后续数据库化时必须保留来源审计能力，理想状态进一步支持字段级 source/confidence。
+后期数据库化仍需保留 source/confidence，并逐步升级为字段级来源审计。
 
 ---
 
-### 7. 图片策略
+### 7. Cars 图片策略（2026-08-19 最终决定）
 
-不批量复制竞品自制图片。
+**Cars 页面当前不显示车辆图片。**
 
-优先级：
-1. 官方允许公开使用的 Ghost Driver / Roblox 素材。
-2. 可明确确认的游戏内截图（优先自行截取）。
-3. 独立实机内容用于验证车型外观，不默认重新托管其版权图片。
-4. 在没有可靠图片前，车辆卡片继续使用站内视觉占位，不用错误车型图片填充。
+原因：
+- 网络上 Ghost Driver 车辆素材清晰度不足。
+- 普通图片搜索容易混入真实汽车或其他 Roblox 赛车游戏。
+- 直接使用竞品自制图片有版权和重复内容风险。
+- 低质量图片对数据库型页面的价值低于清晰的数据与文本信息。
 
-图片数据未来应支持 `imageSource` 与 `imageVerifiedAt`。
-
----
-
-### 8. 其他功能需求
-
-#### Codes
-Active / Expired / Pre-Alpha 筛选、一键复制、奖励、添加与验证时间、Redeem 步骤、来源提示。
-
-#### Guides
-列表 + 详情模板；Beginner、Money、Tuning、Driving、Song IDs 为必做内容。
-
-#### Updates
-按时间倒序，记录新车、平衡调整、新 Codes 等，并可关联车辆。
-
-#### 合规页面
-Privacy、Terms、Contact、About 必须完整可访问；Footer 全站显示非官方声明与主要 SEO 子页面锚文本链接。
+实现要求：
+- Vehicle Card 不展示图片、假车辆剪影或图片占位区域。
+- 页面布局按纯数据卡片设计。
+- `image` 字段暂时保留在类型中，为未来官方/自有高清素材预留，不在当前 UI 中渲染。
 
 ---
 
-### 9. SEO 与渲染要求
+### 8. SEO 与内部链接
+
+- `/cars` 是 Cars topic cluster 的父页面。
+- `/cars/best`、`/cars/new`、`/cars/free`、`/cars/limited` 是独立 SEO Landing Pages，不只是 query filter。
+- Header 主导航链接 `/cars`。
+- Footer 使用描述性锚文本：Ghost Driver Cars、Best Ghost Driver Cars、New Ghost Driver Cars、Free Ghost Driver Cars、Limited Ghost Driver Cars。
+- Sitemap 只收录 `/cars` 新路由，不收录旧 `/vehicles` 重定向路由。
+- 首页、相关 Guides、Updates 后续新增 Cars 内链时统一指向 `/cars`。
+- canonical 统一使用 `/cars` 路径。
+
+---
+
+### 9. SSR / 技术要求
 
 - 强制 SSR 或 SSG。
 - 页面初始 HTML 必须包含 H1、正文、Cars/Codes 数据等核心内容。
 - 每页独立 title / description / canonical / OG。
-- Sitemap 必须包含所有可索引正式页面；新增 Cars 页面时同步更新。
-- Cars 页面正文自然覆盖 Ghost Driver cars 等主题词，不为了达到固定百分比而堆砌关键词。
-- 页面之间建立 Cars Hub → Best / Free / Limited / New 的内链集群。
-- Footer 使用描述性锚文本链接到重要二级路由。
+- 文件路由使用 TanStack Router。
+- 数据与 UI 分离。
+- 所有关键数据通过 server loader 获取。
+- sitemap 在新增可索引路由时同步更新。
 
 ---
 
 ### 10. 设计与体验
 
-延续 `docs/DESIGN.md` 设计体系。Cars 页面重点参考竞品中有效的数据库体验，但不复制其视觉资产：
+延续 `docs/DESIGN.md` 设计体系。
+
+Cars 页面重点：
 - 数据摘要。
-- 清晰 Filter Tabs。
-- 数据库式车辆卡片。
+- Filter / section tabs。
+- 纯文本/数据车辆卡片。
 - Free / Limited / Recent / Tier badges。
-- Pending/verification 状态可读。
+- Price / acquisition 清楚可见。
+- 只有存在可信数据时才显示具体性能字段。
+- Confidence / checked date 保持弱但可见。
 - 移动端优先。
 
 ---
 
-### 11. 开发优先级
+### 11. 当前开发状态
 
-**已完成 / 正在完成 P0**
-- TanStack Start + SSR 基础架构。
-- 首页 SEO 内容。
-- Codes 页面。
-- Cars 本地数据层与 `/vehicles`、`/vehicles/free`、`/vehicles/limited`、`/vehicles/best`。
-- Footer 二级路由内链。
-- 合规静态页面。
+已完成/本轮完成：
+- Cars 真实 roster 替换 placeholder 数据。
+- Vehicle 类型扩展 confidence/source/acquisition 等字段。
+- `/cars` 新主路由。
+- `/cars/best`。
+- `/cars/new`。
+- `/cars/free`。
+- `/cars/limited`。
+- 旧 `/vehicles*` 路由重定向到 `/cars*`。
+- Header / Footer Cars 链接迁移。
+- Sitemap 路由迁移。
+- `/cars` 主页面扩展为 1,200+ 词 Pillar Page。
+- `/cars` 加入 Best / New / Free / Limited 明显内部链接。
+- Cars 卡片去除图片/车辆剪影占位。
+- Cars 卡片减少无意义 Pending 展示，仅在已有可信数据时显示具体性能值。
 
-**Cars 当前迭代**
-1. 用经过审计的真实车型替换 placeholder records。
-2. 扩展 Vehicle 类型支持 confidence/source/acquisition。
-3. `/vehicles` 升级为 Cars Database + SEO Pillar。
-4. Free / Limited 页面增加独立搜索意图内容。
-5. 完善 Best Cars 页面排名依据。
-6. 新增 `/vehicles/new`。
-7. 补可靠车辆图片。
-8. 持续通过游戏 UI / 实机补齐 price 与 specs。
-
-**P1**
-- Updates / FAQ / About 深化。
-- Cars 搜索、class filter、sort。
-- JSON-LD / Breadcrumb schema。
-- 响应式与 Core Web Vitals 优化。
-
-**P2**
-- 数据库接入与后台维护。
-- 用户提交数据。
-- 单车详情页。
-- 多语言。
+后续 Cars P1：
+- Search by car name。
+- Class / status filter。
+- Sort by price / top speed / recent。
+- 单车详情页（数据量足够后）。
+- Breadcrumb / structured data。
+- 持续验证更多 price / specs。
 
 ---
 
@@ -267,7 +282,7 @@ Privacy、Terms、Contact、About 必须完整可访问；Footer 全站显示非
 
 - Pre-Alpha 数据变化快：所有 Cars/Codes 显示验证时间。
 - Community Wiki 可能互相抄袭：多个竞品相同不自动等于独立验证。
-- 现实车型名与游戏虚构名称可能混用：优先展示游戏内名称。
-- 图片版权与错误车型风险：无可靠图片时宁可使用占位视觉。
-- SEO：禁止纯 CSR；所有重要正文和数据库内容必须服务器输出。
+- 现实车型名与游戏内名称可能混用：优先游戏内名称。
+- 图片质量和版权风险：当前 Cars 页面不显示图片。
+- SEO：禁止纯 CSR，所有重要正文和数据库内容必须服务器输出。
 - 合规：保持 fan-made / unofficial 声明，不暗示官方授权。
