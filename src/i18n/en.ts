@@ -9,7 +9,7 @@ export const en = {
     nav: {
       home: 'Home',
       codes: 'Codes',
-      vehicles: 'Vehicles',
+      vehicles: 'Cars',
       guides: 'Guides',
       updates: 'Updates',
       faq: 'FAQ',
@@ -22,7 +22,7 @@ export const en = {
       viewAll: 'View all',
       readGuide: 'Read guide',
       startGuide: 'Start beginner guide',
-      exploreVehicles: 'Explore vehicles',
+      exploreVehicles: 'Explore cars',
     },
   },
 } as const
