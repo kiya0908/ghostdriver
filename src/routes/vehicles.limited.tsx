@@ -5,6 +5,6 @@ import { getVehicles } from '@/server/content'
 
 export const Route = createFileRoute('/vehicles/limited')({
   loader: () => getVehicles({ data: 'limited' }),
-  head: () => createSeo('Limited Ghost Driver Cars', 'Track limited and time-sensitive Ghost Driver vehicles with last-checked dates and community data warnings.', '/vehicles/limited'),
-  component: () => <VehicleListPage title="Limited Cars" description="Time-sensitive garage records. Always confirm current availability in game before planning a purchase." items={Route.useLoaderData()} active="limited" />,
+  head: () => createSeo('Ghost Driver Limited Cars – Showroom & Limited Vehicle List', 'Track Ghost Driver limited cars, recent showroom vehicles and last-checked availability evidence without treating old rotations as current stock.', '/vehicles/limited'),
+  component: () => <VehicleListPage title="Ghost Driver Limited Cars" description="Track confirmed limited Ghost Driver cars and recent showroom records. Limited status and exact current availability are treated separately because rotations can change between updates." items={Route.useLoaderData()} active="limited" />,
 })
