@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { ArrowRight, BookOpen, Car, Gauge, Route as RouteIcon, WalletCards } from 'lucide-react'
+import { ArrowRight, BookOpen, Gauge, Route as RouteIcon, WalletCards } from 'lucide-react'
 import { GuideCard } from '@/components/ContentCards'
 import { UnofficialNotice } from '@/components/Notice'
 import { PageHero } from '@/components/PageHero'
@@ -60,8 +60,8 @@ function GuidesPage() {
         <div className="protocol-grid">
           <Link to="/guides/$slug" params={{ slug: 'money' }}><article style={{ padding: 25 }}><WalletCards size={26} /><h3>Money Farming</h3><p>Measure total cash per minute, include failed runs and spend only when an upgrade removes a real bottleneck.</p></article></Link>
           <Link to="/guides/$slug" params={{ slug: 'tuning' }}><article style={{ padding: 25 }}><Gauge size={26} /><h3>Tuning</h3><p>Keep a stock or known baseline, change one variable, repeat the same test and keep only measurable improvements.</p></article></Link>
-          <Link to="/cars"><article style={{ padding: 25 }}><Car size={26} /><h3>Cars</h3><p>Compare the current vehicle database before using your saved cash on another car.</p></article></Link>
-          <Link to="/codes"><article style={{ padding: 25 }}><BookOpen size={26} /><h3>Codes</h3><p>Check verified active codes before a long progression session so available cash rewards are not missed.</p></article></Link>
+          <Link to="/guides/$slug" params={{ slug: 'driving' }}><article style={{ padding: 25 }}><RouteIcon size={26} /><h3>Traffic Cutting</h3><p>Read closing speed, preserve an exit lane and stabilize the car before committing to another cut.</p></article></Link>
+          <Link to="/codes" search={{ status: 'active' }}><article style={{ padding: 25 }}><BookOpen size={26} /><h3>Codes</h3><p>Check verified active codes before a long progression session so available cash rewards are not missed.</p></article></Link>
         </div>
         <div className="section-copy" style={{ marginTop: 24 }}>
           <p>Progression-focused Ghost Driver guides should answer two different questions: how to earn more efficiently and how to avoid wasting what you earn. The money farming page uses cash per minute as the main comparison because a high-risk route can look profitable until resets are included. The tuning page uses a baseline method because changing several settings at once makes it impossible to know what actually improved the car. Together, these Ghost Driver guides create a simple progression loop: drive a repeatable route, identify the biggest limitation, spend against that limitation and then retest under the same conditions.</p>
@@ -90,7 +90,7 @@ function GuidesPage() {
 
       <section className="section">
         <div className="roblox-cta">
-          <div><p className="eyebrow"><span />Next step</p><h2>Build Your Own Learning Route</h2><p>Start with one Ghost Driver guide, practice one measurable skill, then use the related car, code and update pages when you need more context. The goal of this Ghost Driver guides hub is to reduce guesswork and give every new test a clear purpose.</p></div>
+          <div><p className="eyebrow"><span />Next step</p><h2>Build Your Own Learning Route</h2><p>Start with one Ghost Driver guide, practice one measurable skill, then use the related code and update pages when you need more context. The goal of this Ghost Driver guides hub is to reduce guesswork and give every new test a clear purpose.</p></div>
           <Link className="button primary roblox-button" to="/guides/$slug" params={{ slug: 'beginner' }}><RouteIcon size={18} />Start Beginner Guide</Link>
         </div>
       </section>
