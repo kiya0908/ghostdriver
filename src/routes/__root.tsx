@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { createRootRoute, HeadContent, Link, Outlet, Scripts } from '@tanstack/react-router'
 import { I18nextProvider } from 'react-i18next'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 import { i18n } from '@/i18n'
@@ -43,7 +44,10 @@ function RootComponent() {
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <head><HeadContent /></head>
+      <head>
+        <HeadContent />
+        <GoogleAnalytics />
+      </head>
       <body>{children}<Scripts /></body>
     </html>
   )
