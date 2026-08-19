@@ -40,16 +40,6 @@ function HomePage() {
             </div>
             <UnofficialNotice compact />
           </div>
-          <div className="telemetry-panel" role="region" aria-label="Game status summary">
-            <div className="telemetry-head"><span>COMMUNITY TELEMETRY</span><span className="live-dot">TRACKING</span></div>
-            <div className="speed-dial"><div className="dial-ring"><strong>PRE</strong><span>ALPHA</span></div></div>
-            <dl>
-              <div><dt>Developer</dt><dd>Tilted Vehicles</dd></div>
-              <div><dt>Platform</dt><dd>Roblox</dd></div>
-              <div><dt>Data mode</dt><dd>Community verified</dd></div>
-            </dl>
-            <p>Ghost Driver is still evolving, so vehicle values, rewards, controls and Ghost Driver Roblox code availability may change between builds.</p>
-          </div>
         </div>
       </section>
 
