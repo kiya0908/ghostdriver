@@ -3,13 +3,15 @@
 .footer-wordmark { margin: 0; font-family: var(--display); font-size: 30px; letter-spacing: .04em; }
 .footer-wordmark span { color: var(--primary); }
 .footer-disclaimer { max-width: 840px; margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
-.footer-links { display: grid; grid-template-columns: repeat(2, auto); align-content: start; gap: 6px 28px; }
+.footer-links { display: grid; grid-template-columns: repeat(2, minmax(150px, auto)); align-content: start; gap: 32px 48px; }
+.footer-link-column { display: grid; align-content: start; gap: 6px; }
+.footer-link-heading { margin: 0 0 8px; color: var(--foreground); font-family: var(--display); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .footer-links a { color: var(--muted); font-size: 13px; }
 .footer-links a:hover { color: var(--primary); }
 .footer-bottom { display: flex; justify-content: space-between; margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(58,74,114,.55); color: #7583a0; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
 
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-links { grid-template-columns: repeat(3, 1fr); }
+  .footer-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
   .footer-bottom { display: grid; gap: 5px; }
 }
