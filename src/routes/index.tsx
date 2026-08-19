@@ -9,8 +9,8 @@ import { getHomeContent } from '@/server/content'
 export const Route = createFileRoute('/')({
   loader: () => getHomeContent(),
   head: () => createSeo(
-    'Ghost Driver Roblox Guide, Codes & Gameplay',
-    'Ghost Driver Roblox guide with Ghost Driver codes, Roblox code updates, gameplay tips, vehicles, controls and beginner strategies for the pre-alpha driving game.',
+    'Ghost Driver Wiki: Codes, Cars & Roblox Guides',
+    'Ghost Driver Roblox wiki with Ghost Driver codes, cars, beginner guides, traffic-cutting tips, gameplay video and update tracking for the pre-alpha driving game.',
   ),
   component: HomePage,
 })
@@ -21,7 +21,7 @@ function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Ghost Driver Wiki',
-    description: 'An independent fan-made guide to the Roblox game Ghost Driver, including Ghost Driver codes, gameplay tips, vehicles and updates.',
+    description: 'An independent fan-made Ghost Driver Roblox wiki covering Ghost Driver codes, cars, beginner guides, traffic-cutting tips and updates.',
     inLanguage: 'en',
   }
 
@@ -32,8 +32,8 @@ function HomePage() {
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
             <p className="eyebrow"><span />PRE-ALPHA FIELD MANUAL</p>
-            <h1>GHOST DRIVER<br /><em>ROBLOX GUIDE.</em></h1>
-            <p>Ghost Driver is a Roblox driving game built around threading through dense highway traffic at high speed. Use this independent Ghost Driver guide to check Ghost Driver codes, learn the controls, compare community vehicle records and prepare for cleaner runs.</p>
+            <h1>GHOST DRIVER<br /><em>ROBLOX WIKI.</em></h1>
+            <p>Ghost Driver is a Roblox driving game built around high-speed highway runs, traffic cutting, car progression and the challenge of staying in control as the road gets faster. Use this independent Ghost Driver wiki to check Ghost Driver codes, compare cars, learn the controls and improve your next run.</p>
             <div className="hero-actions">
               <Link className="button primary" to="/codes" search={{ status: 'active' }}>Check Ghost Driver codes <ArrowRight size={17} /></Link>
               <Link className="button" to="/guides/$slug" params={{ slug: 'beginner' }}>Start beginner guide</Link>
@@ -48,7 +48,7 @@ function HomePage() {
               <div><dt>Platform</dt><dd>Roblox</dd></div>
               <div><dt>Data mode</dt><dd>Community verified</dd></div>
             </dl>
-            <p>Ghost Driver is still in pre-alpha, so controls, vehicles, rewards and Ghost Driver Roblox code availability can change between builds.</p>
+            <p>Ghost Driver is still evolving, so vehicle values, rewards, controls and Ghost Driver Roblox code availability may change between builds.</p>
           </div>
         </div>
       </section>
@@ -58,22 +58,38 @@ function HomePage() {
           <p className="eyebrow"><span />GHOST DRIVER OVERVIEW</p>
           <h2>What is Ghost Driver on Roblox?</h2>
           <div className="seo-copy-grid">
-            <p><strong>Ghost Driver</strong> is a fast, risk-heavy Roblox driving experience where the road itself is the challenge. Instead of placing you on a quiet circuit, Ghost Driver sends you into busy highway traffic and asks you to maintain speed while choosing gaps, changing lanes and recovering from imperfect lines. The basic idea is easy to understand, but clean high-speed runs require patience, awareness and increasingly precise control.</p>
-            <p>The official Ghost Driver experience is currently marked pre-alpha. That matters when using any Ghost Driver wiki or guide because vehicles, handling, controls, rewards and other systems may change as development continues. This site separates verified information from community observations and focuses on practical Ghost Driver gameplay, current controls, Ghost Driver codes, vehicle notes, beginner guidance and update tracking without presenting guesses as confirmed facts.</p>
+            <p><strong>Ghost Driver</strong> is a Roblox highway driving experience from Tilted Vehicles. Instead of following a traditional racing circuit, much of the challenge comes from moving through dense traffic at speed, finding safe gaps, controlling your car and improving each run. Going fast is only part of Ghost Driver; successful runs also depend on reading traffic early and knowing when a gap is too risky.</p>
+            <p>The basic Ghost Driver progression loop is simple: get a car, learn how it accelerates and brakes, build more consistent traffic runs, earn Cash, explore more vehicles and gradually attempt faster traffic cutting. Because Ghost Driver remains in pre-alpha, this wiki separates verified information from community observations and avoids filling missing values with guesses.</p>
           </div>
         </section>
 
         <section>
-          <SectionHeading index="01" title="Ghost Driver codes" description="Track Ghost Driver codes and Ghost Driver Roblox code claims without relying on stale lists." action={<Link className="text-link" to="/codes" search={{ status: 'active' }}>Full code tracker <ChevronRight size={15} /></Link>} />
+          <SectionHeading index="01" title="Latest Ghost Driver codes" description="Track Ghost Driver codes and Ghost Driver Roblox code claims without relying on stale lists." action={<Link className="text-link" to="/codes" search={{ status: 'active' }}>Full code tracker <ChevronRight size={15} /></Link>} />
           <div className="section-copy">
-            <p>Players searching for <strong>Ghost Driver codes</strong> usually want a quick answer: which codes are active right now, what they reward and whether a claimed Ghost Driver Roblox code still works. Because Ghost Driver is still early in development, code availability may be inconsistent and a code mentioned in a video, social post or older guide may no longer be useful in the current build.</p>
-            <p>Our Ghost Driver codes tracker is deliberately conservative. We only surface a Ghost Driver code as active when it meets our publication standard. If no verified Ghost Driver codes are available, the page says so instead of filling the list with recycled Roblox code claims. You can use the dedicated codes page for active, expired and recently checked entries as the game develops.</p>
+            <p>Ghost Driver codes are one of the easiest things to check before a new session. A working Ghost Driver Roblox code may provide free in-game rewards that can help with early progression, especially while you are still building your first garage. Because Roblox game codes can expire or change after updates, always check the latest status before trying one in-game.</p>
+            <p>Our Ghost Driver codes tracker separates active, expired and unverified claims instead of presenting every code found online as working. If no verified Ghost Driver codes are available, the page says so rather than filling the list with recycled Roblox code claims.</p>
           </div>
           {data.codes.length ? <div className="code-list">{data.codes.map((item) => <CodeCard key={item.id} item={item} />)}</div> : <EmptyState title="No verified active codes"><span>We found community claims, but no Ghost Driver code met our publication standard. Check back after the next official announcement.</span></EmptyState>}
         </section>
 
+        <section className="section">
+          <SectionHeading index="02" title="How to play Ghost Driver" description="Start with control, then build speed through repeatable high-traffic runs." />
+          <div className="section-copy">
+            <p>Your first Ghost Driver sessions should be about control rather than maximum speed. Spend a few runs learning how your current car responds before worrying about the fastest vehicle. Pay attention to acceleration, braking distance, steering response and how quickly the car changes direction.</p>
+            <p>Repeatedly driving the same stretch of highway makes traffic easier to read. You begin to recognize where you normally brake, where traffic becomes difficult and how much room you need before attempting a pass. Once your Ghost Driver runs become consistent, increase speed gradually instead of forcing risky gaps.</p>
+          </div>
+          <ol className="protocol-grid">
+            {[
+              { icon: Radio, title: 'Learn your car', copy: 'Understand acceleration, braking and steering before chasing maximum speed.' },
+              { icon: Map, title: 'Read the traffic', copy: 'Look beyond the nearest car and identify an exit before entering a narrow gap.' },
+              { icon: Gauge, title: 'Add pace slowly', copy: 'Increase speed only when your steering and braking inputs remain controlled.' },
+              { icon: Flag, title: 'Review the run', copy: 'Change one driving decision or setup choice before the next attempt.' },
+            ].map((step, index) => <li key={step.title}><span className="protocol-index" aria-hidden="true">0{index + 1}</span><step.icon /><h3>{step.title}</h3><p>{step.copy}</p></li>)}
+          </ol>
+        </section>
+
         <section className="section video-section">
-          <SectionHeading index="02" title="Watch Ghost Driver gameplay" description="See the pace, traffic density and driving rhythm before your first run." />
+          <SectionHeading index="03" title="Watch Ghost Driver gameplay" description="See highway driving, traffic cutting and the pace of a real Ghost Driver run." />
           <div className="video-shell">
             <div className="video-frame">
               <iframe
@@ -87,74 +103,78 @@ function HomePage() {
             <div className="video-copy">
               <PlayCircle size={30} />
               <h3>Learn the flow before chasing speed</h3>
-              <p>This Ghost Driver gameplay video gives new players a useful picture of the game's pace. Pay attention to how quickly traffic gaps appear and disappear, how much road is visible before a lane decision, and how a small correction at speed can change the next few seconds of a run.</p>
-              <p>The useful takeaway is simple: control first, speed second. A clean Ghost Driver run depends more on reading traffic and preserving an exit path than holding maximum throttle. Watching a complete run can make the controls and beginner tips below easier to understand before you launch Ghost Driver on Roblox yourself.</p>
+              <p>This Ghost Driver gameplay video shows the rhythm of highway driving before you jump into the game yourself. Watch how quickly traffic gaps appear and disappear, how much road is visible before a lane decision and how small corrections can affect the next few seconds of a run.</p>
+              <p>The useful takeaway is simple: control first, speed second. A clean Ghost Driver run depends more on reading traffic and preserving an exit path than holding maximum throttle.</p>
             </div>
           </div>
         </section>
 
         <section className="section">
-          <SectionHeading index="03" title="How to play Ghost Driver" description="Learn the controls, then build speed through repeatable high-traffic runs." />
-          <div className="section-copy">
-            <p>Ghost Driver uses familiar driving inputs, but the traffic-heavy format changes how you should approach them. Use W, A, S and D or the arrow keys to drive, V to change camera or enter first-person view, Shift for the handbrake and drift, and L for headlights. Learning what each input does takes only a moment; learning when to use it while traffic is closing around you is the real challenge.</p>
-            <p>Start by keeping your inputs small and predictable. Look farther down the highway instead of focusing only on the vehicle directly ahead. When you see several possible gaps, favor the one that leaves another escape route if traffic changes. In Ghost Driver, a slightly slower line that keeps your options open is usually better practice than committing to a narrow gap you cannot recover from.</p>
-          </div>
-          <ol className="protocol-grid">
-            {[
-              { icon: Radio, title: 'Check the build', copy: 'Ghost Driver is pre-alpha, so controls, rewards and handling can change.' },
-              { icon: Map, title: 'Read the traffic', copy: 'Look beyond the nearest car and identify two possible paths before committing to one.' },
-              { icon: Gauge, title: 'Add pace slowly', copy: 'Increase speed only when your steering and braking inputs remain controlled.' },
-              { icon: Flag, title: 'Review the run', copy: 'Change one input, camera choice or driving decision before the next attempt.' },
-            ].map((step, index) => <li key={step.title}><span className="protocol-index" aria-hidden="true">0{index + 1}</span><step.icon /><h3>{step.title}</h3><p>{step.copy}</p></li>)}
-          </ol>
-        </section>
-
-        <section className="section">
-          <SectionHeading index="04" title="Ghost Driver beginner tips" description="Simple habits that make early runs easier to understand and repeat." />
+          <SectionHeading index="04" title="How to earn Cash in Ghost Driver" description="Build reliable runs first, then use rewards to expand your garage." />
           <div className="seo-copy-grid">
-            <p><strong>Choose visibility before style.</strong> Test the available camera views and use the one that makes surrounding traffic easiest for you to read. First-person can feel immersive, while another view may provide more context around the car. There is no reason to force one camera while you are still learning Ghost Driver.</p>
-            <p><strong>Avoid constant lane switching.</strong> Moving through every available gap may feel fast, but unnecessary corrections create more chances to lose control. Hold a useful lane until you have a clear reason to move, and make the next steering input deliberate rather than reactive.</p>
-            <p><strong>Use the handbrake with purpose.</strong> Shift gives you access to the handbrake and drifting, but that does not make every traffic situation a drift opportunity. Learn ordinary steering and braking first, then experiment with the handbrake when you understand how your current vehicle responds.</p>
-            <p><strong>Build consistency before records.</strong> If you crash at the same type of merge or gap repeatedly, reduce speed and solve that situation first. Ghost Driver becomes more satisfying when your runs improve because you are reading the road better, not because one risky attempt happened to work.</p>
+            <p>Cash determines how quickly you can move beyond your starting options and explore more of the Ghost Driver garage. For new players, the best approach is usually not to chase the most difficult possible run immediately. Focus on repeatable driving that you can complete consistently.</p>
+            <p>Ghost Driver codes are also worth checking whenever you play. When an active code offers Cash or another useful reward, it can reduce some of the early grind. A practical progression path is: check active codes, build consistent runs, earn Cash, improve your garage and then attempt faster traffic cutting.</p>
           </div>
         </section>
 
         <section className="section">
-          <SectionHeading index="05" title="Ghost Driver vehicles" description="Use community vehicle records while remembering that pre-alpha values can change." action={<Link className="text-link" to="/vehicles">All vehicles <ChevronRight size={15} /></Link>} />
+          <SectionHeading index="05" title="Ghost Driver cars and vehicle progression" description="Compare community records while remembering that pre-alpha values can change." action={<Link className="text-link" to="/vehicles">All vehicles <ChevronRight size={15} /></Link>} />
           <div className="section-copy">
-            <p>Vehicle choice can change how Ghost Driver feels through traffic. Acceleration affects how quickly you rebuild pace, while stability and predictable response can matter when a gap closes unexpectedly. A car that feels impressive at maximum speed is not automatically the easiest choice for learning consistent traffic runs.</p>
-            <p>Our Ghost Driver vehicle pages record what the community can currently verify and leave unknown fields blank rather than inventing performance numbers. When comparing vehicles, treat early values as a snapshot rather than a permanent tier list. A future Ghost Driver update may alter handling or progression, so check the individual vehicle records for the context behind each entry.</p>
+            <p>Cars are a major part of Ghost Driver, but the fastest vehicle is not automatically the best choice for every player. Acceleration, handling, braking, stability, price and driving style can all affect how useful a car feels on the highway. Beginners may benefit more from predictable handling, while experienced players may prefer cars that reward aggressive high-speed driving.</p>
+            <p>When choosing your next Ghost Driver car, ask whether you can control it, whether it is worth the Cash and whether it fits the way you drive. Our Ghost Driver vehicle pages collect available community information and clearly mark unknown or unverified values rather than inventing performance numbers.</p>
           </div>
           <div className="card-grid">{data.vehicles.map((item) => <VehicleCard key={item.id} item={item} />)}</div>
         </section>
 
         <section className="section">
-          <SectionHeading index="06" title="Ghost Driver guides and updates" description="Use focused guides for gameplay questions and the tracker for changes between builds." action={<Link className="text-link" to="/guides">Guide library <ChevronRight size={15} /></Link>} />
+          <SectionHeading index="06" title="Ghost Driver traffic cutting and No Hesi tips" description="Read farther ahead, keep an exit path and make smoother decisions at speed." />
+          <div className="seo-copy-grid">
+            <p><strong>Look ahead instead of only at the nearest car.</strong> The best Ghost Driver traffic decisions happen before you reach the gap. Identify several possible paths and know where the car needs to go after the first lane change.</p>
+            <p><strong>Do not force every opening.</strong> No Hesi-style driving rewards confidence, but confidence should come from understanding the road and your vehicle. A gap that leaves no exit can end a run even when the first move looks possible.</p>
+            <p><strong>Keep steering inputs smooth.</strong> Constant corrections create more opportunities to lose control. Hold a useful lane until you have a clear reason to move, then make the next input deliberately.</p>
+            <p><strong>Increase speed after consistency.</strong> Higher speed gives you less reaction time. Build clean Ghost Driver runs first, then add pace once braking points and lane choices stop feeling like guesses.</p>
+          </div>
+        </section>
+
+        <section className="section">
+          <SectionHeading index="07" title="Ghost Driver tuning and upgrades" description="Change one thing at a time so you can tell what actually improves the car." />
           <div className="section-copy">
-            <p>Our Ghost Driver guides focus on decisions that remain useful even when the pre-alpha build changes: camera control, traffic reading, braking discipline, gradual pace increases and understanding vehicle behavior. If you are new to Ghost Driver, start with the beginner guide before worrying about advanced setups or perfect runs.</p>
-            <p>Because the experience is still being developed, it is also worth checking recent updates whenever something feels different. A change in handling, available vehicles or Ghost Driver codes can make an older recommendation less useful. We keep guides separate from update records so you can tell the difference between general driving advice and information tied to a particular build.</p>
+            <p>Once you understand your vehicle, tuning and upgrades become another way to shape the Ghost Driver experience. Avoid changing every setting at once. If several values move together, it becomes difficult to know which adjustment actually improved or hurt the car.</p>
+            <p>Use a familiar section of road as a baseline, change one setting, then compare the result. For traffic cutting, predictable response can matter more than impressive performance numbers. A setup that is technically faster but harder to place between traffic may not improve your real Ghost Driver runs.</p>
+          </div>
+        </section>
+
+        <section className="section">
+          <SectionHeading index="08" title="Popular Ghost Driver guides" description="Choose the guide that matches what you want to improve next." action={<Link className="text-link" to="/guides">Guide library <ChevronRight size={15} /></Link>} />
+          <div className="section-copy">
+            <p>If you are new to Ghost Driver, start with the beginner guide to learn the basic gameplay loop, controls and road awareness. If you are already comfortable with the basics, use the vehicle, driving and progression guides to answer more specific questions.</p>
+            <p>Because Ghost Driver is still being developed, it is also worth checking recent updates whenever something feels different. A change in handling, rewards, vehicles or Ghost Driver codes can make an older recommendation less useful.</p>
           </div>
           <div className="card-grid">{data.guides.map((item, index) => <GuideCard key={item.id} item={item} featured={index === 0} />)}</div>
         </section>
 
         <section className="section">
-          <SectionHeading index="07" title="Ghost Driver FAQ" description="Quick answers to common questions from players finding the game for the first time." />
+          <SectionHeading index="09" title="Ghost Driver FAQ" description="Quick answers to common questions from players finding the game for the first time." />
           <div className="faq-list">
             <details>
               <summary><span>01</span>What is Ghost Driver?</summary>
-              <p>Ghost Driver is a Roblox driving experience centered on navigating highway traffic at speed. The official experience is currently labeled pre-alpha, so features and game data can change during development.</p>
+              <p>Ghost Driver is a Roblox highway driving experience from Tilted Vehicles centered on high-speed traffic cutting, cars and progression. The official experience is currently labeled pre-alpha, so features and game data can change during development.</p>
             </details>
             <details>
               <summary><span>02</span>Are there active Ghost Driver codes?</summary>
               <p>Use our Ghost Driver codes tracker for the current status. We do not label a Ghost Driver Roblox code as active simply because it appears on an older list; unverified claims remain unpublished until they meet our checking standard.</p>
             </details>
             <details>
-              <summary><span>03</span>What are the Ghost Driver controls?</summary>
-              <p>You can drive with WASD or the arrow keys. V changes the camera or first-person view, Shift controls the handbrake and drift function, and L controls the headlights. Controls may change while Ghost Driver remains in pre-alpha.</p>
+              <summary><span>03</span>How do I get better at Ghost Driver?</summary>
+              <p>Start by learning one car and one section of road. Build consistent runs before increasing speed, look farther ahead in traffic, make smoother steering inputs and review what caused each failed run.</p>
             </details>
             <details>
-              <summary><span>04</span>Is this the official Ghost Driver website?</summary>
-              <p>No. This is an independent fan-made Ghost Driver guide and wiki. Use the Roblox button below to open the official game experience published on Roblox.</p>
+              <summary><span>04</span>What is the best car in Ghost Driver?</summary>
+              <p>There is no single Ghost Driver car that is automatically best for every player. The right choice depends on the current build, your budget and whether you value acceleration, handling, stability or another characteristic.</p>
+            </details>
+            <details>
+              <summary><span>05</span>Is this the official Ghost Driver website?</summary>
+              <p>No. This is an independent fan-made Ghost Driver wiki and is not affiliated with Roblox, Tilted Vehicles or the official Ghost Driver development team.</p>
             </details>
           </div>
         </section>
@@ -169,7 +189,7 @@ function HomePage() {
           <div>
             <p className="eyebrow"><span />PLAY THE OFFICIAL EXPERIENCE</p>
             <h2>Ready to drive Ghost Driver?</h2>
-            <p>Open the official Ghost Driver Roblox page by Tilted Vehicles and jump into the latest available build. After playing, return here for Ghost Driver codes, controls, vehicle records, guides and update tracking. This fan site is independent and is not affiliated with Roblox or the game developer.</p>
+            <p>Open the official Ghost Driver Roblox page by Tilted Vehicles and jump into the latest available build. After playing, return here for Ghost Driver codes, cars, beginner guides, driving tips and update tracking.</p>
           </div>
           <a className="button primary roblox-button" href="https://www.roblox.com/games/137228775845999/Ghost-Driver" target="_blank" rel="noreferrer noopener">Play Ghost Driver on Roblox <ExternalLink size={17} /></a>
         </section>
