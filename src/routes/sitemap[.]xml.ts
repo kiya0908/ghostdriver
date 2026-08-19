@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 const paths = [
-  '/', '/codes', '/vehicles', '/vehicles/free', '/vehicles/limited', '/vehicles/best',
+  '/', '/codes', '/cars', '/cars/best', '/cars/new', '/cars/free', '/cars/limited',
   '/guides', '/guides/beginner', '/guides/money', '/guides/tuning', '/guides/driving', '/guides/song-ids',
   '/updates', '/faq', '/about', '/privacy', '/terms', '/contact',
 ]
