@@ -21,6 +21,10 @@ function stat(value: number | null) {
   return value === null ? 'Pending' : `${value}/100`
 }
 
+function speed(value: number | null) {
+  return value === null ? 'Pending' : `${value} MPH`
+}
+
 export function VehicleCard({ item }: { item: Vehicle }) {
   return (
     <article className="vehicle-card">
@@ -30,16 +34,23 @@ export function VehicleCard({ item }: { item: Vehicle }) {
         <div className="vehicle-badges">
           {item.isFree && <span className="status-badge free">Free</span>}
           {item.isLimited && <span className="status-badge limited">Limited</span>}
+          {item.isNew && <span className="status-badge active">Recent</span>}
         </div>
       </div>
       <div className="vehicle-body">
-        <div><p className="micro-label">COMMUNITY RECORD</p><h3>{item.name}</h3><p>{item.description}</p></div>
+        <div>
+          <p className="micro-label">{item.vehicleClass ?? 'GHOST DRIVER CAR'} · {item.confidence ? `${item.confidence} confidence` : 'community record'}</p>
+          <h3>{item.name}</h3>
+          {item.realWorldModel && <p className="verified-line">Inspired by: {item.realWorldModel}</p>}
+          <p>{item.description}</p>
+          <p className="verified-line"><strong>Price:</strong> {item.price === null ? 'Pending verification' : `$${item.price.toLocaleString()}`} · <strong>Access:</strong> {item.acquisition ?? 'Pending verification'}</p>
+        </div>
         <dl className="vehicle-stats">
-          <div><dt><Gauge size={15} />Top speed</dt><dd>{stat(item.topSpeed)}</dd></div>
+          <div><dt><Gauge size={15} />Top speed</dt><dd>{speed(item.topSpeed)}</dd></div>
           <div><dt><Wrench size={15} />Handling</dt><dd>{stat(item.handling)}</dd></div>
           <div><dt><Timer size={15} />Acceleration</dt><dd>{stat(item.acceleration)}</dd></div>
         </dl>
-        <p className="verified-line">Last checked {item.verifiedAt} · {item.dataQuality.replace('-', ' ')}</p>
+        <p className="verified-line">Last checked {item.verifiedAt} · {item.dataQuality.replace('-', ' ')}{item.specsVerified === false ? ' · exact specs provisional' : ''}</p>
       </div>
     </article>
   )
