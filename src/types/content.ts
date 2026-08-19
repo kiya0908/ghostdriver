@@ -12,15 +12,21 @@ export interface GameCode {
 }
 
 export type VehicleTier = 'S' | 'A' | 'B' | 'C'
+export type VehicleConfidence = 'high' | 'medium-high' | 'medium' | 'low-medium'
 
 export interface Vehicle {
   id: string
   name: string
   slug: string
+  realWorldModel?: string
+  vehicleClass?: string
   price: number | null
+  acquisition?: string
   isFree: boolean
   isLimited: boolean
+  isNew?: boolean
   topSpeed: number | null
+  tunedTopSpeed?: number | null
   handling: number | null
   acceleration: number | null
   image: string | null
@@ -28,6 +34,9 @@ export interface Vehicle {
   tier?: VehicleTier
   verifiedAt: string
   dataQuality: 'community-estimate' | 'confirmed'
+  confidence?: VehicleConfidence
+  sources?: string[]
+  specsVerified?: boolean
 }
 
 export type GuideSection = {
