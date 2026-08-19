@@ -27,7 +27,11 @@ export interface Vehicle {
   isNew?: boolean
   topSpeed: number | null
   tunedTopSpeed?: number | null
+  zeroToSixty?: number | null
+  horsepower?: number | null
+  drivetrain?: string | null
   handling: number | null
+  handlingLabel?: string
   acceleration: number | null
   image: string | null
   description: string
