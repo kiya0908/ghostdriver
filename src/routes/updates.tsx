@@ -47,7 +47,7 @@ function UpdatesPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">02</span><h2>What We Track in Ghost Driver Updates</h2></div></div>
+        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">02</span><h2>What We Track in Ghost Driver Updates</h2></div></div></div>
         <div className="section-copy">
           <p>A useful Ghost Driver update log should answer more than “did the game update?” Every meaningful release can affect several parts of the experience at once. New cars can change progression priorities. Handling changes can make an old tuning recommendation less useful. Cash changes can alter the best farming method. Traffic changes can affect which gaps are safe at high speed. New codes can change the fastest way to fund an early purchase. Because these systems connect to one another, our Ghost Driver updates tracker checks the rest of the site whenever a confirmed game change appears.</p>
           <p>We focus on player-visible Ghost Driver updates: new vehicles, limited vehicles, free cars, map or highway changes, traffic behavior, driving physics, camera behavior, drifting, handbrake behavior, economy changes, cash rewards, progression, interface changes, Roblox audio support, codes, events and bug fixes. A tiny backend deployment that produces no visible difference may not need its own entry. A small handling change can deserve an entry if it changes how players should drive or tune a car. The goal is to make Ghost Driver updates useful for actual decisions inside the game.</p>
@@ -60,7 +60,7 @@ function UpdatesPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">03</span><h2>How Ghost Driver Update Information Is Verified</h2></div></div>
+        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">03</span><h2>How Ghost Driver Update Information Is Verified</h2></div></div></div>
         <div className="seo-copy-grid">
           <p>Ghost Driver updates can spread through community posts before clear patch notes exist, so source quality matters. We start with the official Roblox experience page and developer-controlled announcements when they are available. Those sources can confirm whether the game description changed, whether a milestone was announced, whether a new car was promoted or whether the developer explicitly described a release. We then compare those claims with visible in-game behavior before writing a strong factual statement. A Ghost Driver update entry should make it obvious which part is confirmed and which part is still being tested.</p>
           <p>Community videos, screenshots and discussions can be useful for discovering a possible Ghost Driver update, especially when a small change is not documented formally. They are secondary evidence, not automatic proof. One player may be on an older server, a private test, a temporary event state or a different device configuration. For that reason, we avoid presenting a single unsourced screenshot as a complete Ghost Driver update. When evidence is incomplete, the safest label is “unconfirmed” until another reliable source or repeatable in-game observation supports it.</p>
@@ -84,7 +84,7 @@ function UpdatesPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">05</span><h2>What to Check After a New Ghost Driver Update</h2></div></div>
+        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">05</span><h2>What to Check After a New Ghost Driver Update</h2></div></div></div>
         <div className="section-copy">
           <p>After a new Ghost Driver update goes live, do not assume your previous setup is automatically wrong. First, repeat a familiar run with a familiar car. Watch acceleration, braking distance, steering response, drift behavior and how quickly traffic gaps close. If the car feels different, change one variable at a time. This makes it much easier to separate a real Ghost Driver update from a bad run, a different server or a setup change you forgot about.</p>
           <p>Next, check progression. A Ghost Driver update that changes car prices, reward rates or available codes can shift the most efficient purchase path even when handling is unchanged. Compare the <Link to="/cars" className="text-link">car database <ArrowRight size={14} /></Link> with the <Link to="/codes" search={{ status: 'active' }} className="text-link">active Ghost Driver codes <ArrowRight size={14} /></Link>. If the update adds a limited vehicle, verify whether it has a deadline, special requirement or event source before spending cash elsewhere. If a code appears with the update, redeem it before relying on a farming estimate that does not include the reward.</p>
@@ -93,7 +93,7 @@ function UpdatesPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">06</span><h2>Ghost Driver Updates vs. Wiki Updates</h2></div></div>
+        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">06</span><h2>Ghost Driver Updates vs. Wiki Updates</h2></div></div></div>
         <div className="seo-copy-grid">
           <p>There is an important difference between Ghost Driver updates and updates to this community website. A Ghost Driver update changes the Roblox experience itself. A wiki update changes our pages, records, guides, layout or verification notes. The two can happen on the same day, but they should never be presented as the same event. For example, adding a new car record to our database is a wiki change unless the car itself was just released in Ghost Driver. Correcting a typo in a guide is also not a game patch.</p>
           <p>This distinction is why the first tracked entry on the timeline is clearly labelled as a community tracker launch rather than an official Ghost Driver update. As the project grows, the timeline can contain both types of entries while keeping the label visible. That lets readers use the page as a history of what changed without accidentally attributing a website edit to the game developers. Clear sourcing is especially important for Ghost Driver updates while the game is still in Pre-Alpha and official patch-note detail may vary from release to release.</p>
@@ -101,7 +101,7 @@ function UpdatesPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">07</span><h2>Ghost Driver Update FAQ</h2></div></div>
+        <div className="section-heading"><div><div className="section-title-row"><span className="section-index">07</span><h2>Ghost Driver Update FAQ</h2></div></div></div>
         <div className="faq-grid">
           <article><h3>What is the latest Ghost Driver update?</h3><p>We only name a latest Ghost Driver update when a release can be verified from reliable evidence. The official Roblox page currently presents the game as Pre-Alpha and points to another massive update at its stated like milestone, but that milestone message does not provide a confirmed release date or complete patch list.</p></article>
           <article><h3>How often does Ghost Driver update?</h3><p>There is no fixed update schedule we can verify from the current public game description. During Pre-Alpha, Ghost Driver updates may arrive irregularly. This page therefore tracks confirmed changes by date rather than promising a weekly or monthly cadence.</p></article>
