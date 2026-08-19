@@ -17,19 +17,16 @@ export function CodeCard({ item }: { item: GameCode }) {
   )
 }
 
-function stat(value: number | null) {
-  return value === null ? null : `${value}/100`
-}
-
-function speed(value: number | null) {
-  return value === null ? null : `${value} MPH`
-}
-
 export function VehicleCard({ item }: { item: Vehicle }) {
-  const topSpeed = speed(item.topSpeed)
-  const handling = stat(item.handling)
-  const acceleration = stat(item.acceleration)
-  const hasPerformance = topSpeed || handling || acceleration
+  const specs = [
+    item.topSpeed !== null ? ['Top speed', `${item.topSpeed} MPH`, Gauge] as const : null,
+    item.tunedTopSpeed ? ['Tuned speed', `${item.tunedTopSpeed}${item.slug === 'audi-r8' ? '+' : ''} MPH`, Gauge] as const : null,
+    item.zeroToSixty ? ['0–60 MPH', `${item.zeroToSixty}s`, Timer] as const : null,
+    item.horsepower ? ['Power', `${item.horsepower} HP`, Gauge] as const : null,
+    item.drivetrain ? ['Drivetrain', item.drivetrain, Wrench] as const : null,
+    item.handlingLabel ? ['Handling', item.handlingLabel, Wrench] as const : item.handling !== null ? ['Handling', `${item.handling}/100`, Wrench] as const : null,
+    item.acceleration !== null ? ['Acceleration', `${item.acceleration}/100`, Timer] as const : null,
+  ].filter(Boolean) as Array<readonly [string, string, typeof Gauge]>
 
   return (
     <article className="vehicle-card">
@@ -47,11 +44,9 @@ export function VehicleCard({ item }: { item: Vehicle }) {
           <p>{item.description}</p>
           <p className="verified-line"><strong>Price:</strong> {item.price === null ? 'Not confirmed' : `$${item.price.toLocaleString()}`} · <strong>Access:</strong> {item.acquisition ?? 'Not confirmed'}</p>
         </div>
-        {hasPerformance ? (
+        {specs.length ? (
           <dl className="vehicle-stats">
-            {topSpeed && <div><dt><Gauge size={15} />Top speed</dt><dd>{topSpeed}</dd></div>}
-            {handling && <div><dt><Wrench size={15} />Handling</dt><dd>{handling}</dd></div>}
-            {acceleration && <div><dt><Timer size={15} />Acceleration</dt><dd>{acceleration}</dd></div>}
+            {specs.map(([label, value, Icon]) => <div key={label}><dt><Icon size={15} />{label}</dt><dd>{value}</dd></div>)}
           </dl>
         ) : <p className="verified-line">Exact performance figures are not published until a current in-game or independently visible spec source is available.</p>}
         <p className="verified-line">Last checked {item.verifiedAt} · {item.dataQuality.replace('-', ' ')}{item.specsVerified === false ? ' · exact specs may still change' : ''}</p>
