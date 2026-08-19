@@ -48,6 +48,9 @@ export type GuideSection = {
   paragraphs: string[]
   steps?: string[]
   callout?: string
+  image?: string
+  imageAlt?: string
+  imageCaption?: string
 }
 
 export interface Guide {
@@ -56,6 +59,9 @@ export interface Guide {
   slug: string
   category: string
   summary: string
+  primaryKeyword?: string
+  heroImage?: string
+  heroImageAlt?: string
   content: GuideSection[]
   updatedAt: string
   readTime: string
