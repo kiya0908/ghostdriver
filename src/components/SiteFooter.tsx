@@ -13,10 +13,11 @@ export function SiteFooter() {
         </div>
         <nav className="footer-links" aria-label="Ghost Driver site links">
           <Link to="/codes" search={{ status: 'active' }}>Ghost Driver Codes</Link>
-          <Link to="/vehicles">Ghost Driver Cars</Link>
-          <Link to="/vehicles/best">Best Ghost Driver Cars</Link>
-          <Link to="/vehicles/free">Free Ghost Driver Cars</Link>
-          <Link to="/vehicles/limited">Limited Ghost Driver Cars</Link>
+          <Link to="/cars">Ghost Driver Cars</Link>
+          <Link to="/cars/best">Best Ghost Driver Cars</Link>
+          <Link to="/cars/new">New Ghost Driver Cars</Link>
+          <Link to="/cars/free">Free Ghost Driver Cars</Link>
+          <Link to="/cars/limited">Limited Ghost Driver Cars</Link>
           <Link to="/guides">Ghost Driver Guides</Link>
           <Link to="/updates">Ghost Driver Updates</Link>
           <Link to="/faq">Ghost Driver FAQ</Link>
